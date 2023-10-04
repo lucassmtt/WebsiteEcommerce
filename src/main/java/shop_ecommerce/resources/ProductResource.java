@@ -12,7 +12,4 @@ import shop_ecommerce.services.ProductService;
 public class ProductResource {
 
     @Autowired ProductService productService;
-
-    @GetMapping
-    public ResponseEntity<>
 }
