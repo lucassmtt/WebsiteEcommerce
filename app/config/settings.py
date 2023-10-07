@@ -37,10 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'category',
-    'order',
-    'product',
-    'user',
+    'rest_framework',
+    'config',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +58,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',
             ],
         'APP_DIRS': True,
         'OPTIONS': {
