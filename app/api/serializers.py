@@ -5,25 +5,47 @@ from api.models import *
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['__all__']
+        fields = [
+            'name',
+            'description'
+        ]
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fiels = ['__all__']
+        fiels = [
+            'name',
+            'price',
+            'description',
+            'lenght',
+            'category_oid'
+        ]
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fiels = ['__all__']
+        fiels = [
+            'name',
+            'email',
+            'phone',
+            'cpf',
+        ]
         
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fiels = ['__all__']
+        fiels = [
+            'user_oid',
+            'totalPrice',
+            'status'
+        ]
 
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderItem
-        fiels = ['__all__']
+        fiels = [
+            'order_oid',
+            'product_oid',
+            'quantity'
+        ]

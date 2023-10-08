@@ -23,10 +23,15 @@ class Category(models.Model):
         blank=True
     )
     
+    def __str__(self) -> str:
+        return f'Name: {self.name} Description: {self.description}'
+    
+    
     class Meta:
         verbose_name = 'categoria'
         verbose_name_plural = 'categorias'
 
+    
 
 class Product(models.Model):
     oid = models.UUIDField(
@@ -54,7 +59,6 @@ class Product(models.Model):
     )
     
     lenght = models.SmallIntegerField(
-        max_length=3
     )
     
     category_oid = models.ForeignKey(
@@ -62,6 +66,10 @@ class Product(models.Model):
         blank=True,
         on_delete=models.CASCADE
     )
+    
+    def __str__(self) -> str:
+        return self.name, self.price, self.description, self.lenght, self.category_oid
+    
     
     class Meta:
         verbose_name = 'produto'
@@ -109,6 +117,9 @@ class User(models.Model):
         null=False,
     )
     
+    def __str__(self) -> str:
+        return self.name, self.email, self.phone, self.cpf
+    
     
 class Order(models.Model):
     oid = models.UUIDField(
@@ -134,6 +145,10 @@ class Order(models.Model):
         null=True
     )
     
+    def __str__(self) -> str:
+        return self.oid, self.user_oid, self.totalPrice, self.status
+    
+    
 class OrderItem(models.Model):
     oid = models.UUIDField(
         db_column='oid_orderItem',
@@ -156,3 +171,6 @@ class OrderItem(models.Model):
     )
     
     quantity = models.IntegerField()
+    
+    def __str__(self) -> str:
+        return self.oid, self.order_oid, self.product_oid, self.quantity
