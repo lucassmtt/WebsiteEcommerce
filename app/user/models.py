@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 import uuid
 # Create your models here.
 
-class User(models.Model):
+class User(User):
     oid = models.UUIDField(
         db_column='oid_user',
         primary_key=True,
