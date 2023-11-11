@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import uuid
 # Create your models here.
 
-class User(User):
+class User(models.Model):
     oid = models.UUIDField(
         db_column='oid_user',
         primary_key=True,
@@ -14,34 +14,21 @@ class User(User):
     
     name = models.CharField(
         max_length=255,
-        null=False,
+        null=True,
         blank=True
-    )
-    
-    email = models.EmailField(
-        max_length=255,
-        null=False,
-        blank=True,
-        unique=True
     )
     
     phone = models.CharField(
         max_length=11,
-        null=False,
+        null=True,
         blank=True,
         unique=True,
     )
     
     cpf = models.CharField(
         max_length=11,
-        null=False,
-        blank=True,
+        null=True,
         unique=True,
-    )
-    
-    password = models.TextField(
-        max_length=255,
-        null=False,
     )
     
     def __str__(self) -> str:
