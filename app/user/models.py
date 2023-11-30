@@ -31,6 +31,9 @@ class User(models.Model):
         unique=True,
     )
     
+    image = models.ImageField()
+
+
     def __str__(self) -> str:
         return self.name, self.email, self.phone, self.cpf
   
