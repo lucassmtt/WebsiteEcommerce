@@ -37,6 +37,11 @@ class Product(models.Model):
         on_delete=models.CASCADE
     )
     
+    similar_orders = models.TextField(
+        max_length=255,
+        null = true,
+    )
+    
     def __str__(self) -> str:
         return self.name, self.price, self.description, self.lenght, self.category_oid
     
