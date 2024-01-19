@@ -6,13 +6,30 @@ app_name = 'api'
 
 
 router = DefaultRouter(trailing_slash=False)
-router.register(r'categorias', views.CategoryViewSet)
-router.register(r'produtos', views.ProductViewSet)
-router.register(r'usuarios', views.UserViewSet)
-router.register(r'pedidos', views.OrderViewSet)
-router.register(r'item-pedidos', views.OrderItemViewSet)
+
+
+router.register(r'categories', views.CategoryViewSet)
+
+
+router.register(r'products', views.ProductViewSet)
+
+
+router.register(r'users', views.UserViewSet)
+
+
+router.register(r'orders', views.OrderViewSet)
+
+
+router.register(r'orders-items', views.OrderItemViewSet)
+
+
 router.register(r'userAdmin', views.UserAdminViewSet)
-router.register(r'adminPedidos', views.AdminPedidos)
-router.register(r'usuarios-pedidos', views.UsuariosPedidos)
+
+
+router.register(r'adminOrders', views.AdminPedidos)
+
+## TODO: requires readjustment
+router.register(r'users-orders', views.UsuariosPedidos)
+
 
 urlpatterns = router.urls
